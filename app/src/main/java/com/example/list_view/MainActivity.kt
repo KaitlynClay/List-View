@@ -13,17 +13,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val listView1 = findViewById<ListView>(R.id.ListView1)
-        val misc = arrayOf("The Canadian Horse", "Akhal-Teke", "Dales Pony", "Suffolk Punch", "Cleveland Bay",
-            "Newfoundland Pony", "American Cream Draft", "Eriskay Pony", "Caspian Horse", "Hackney Horse",
-            "Highland Pony", "Shire Horse")
-        val arrayAdapter: ArrayAdapter<String> = ArrayAdapter(this,android.R.layout.simple_list_item_1, misc)
-        listView1.adapter = arrayAdapter
+//        val misc = arrayOf("The Canadian Horse", "Akhal-Teke", "Dales Pony", "Suffolk Punch", "Cleveland Bay",
+//            "Newfoundland Pony", "American Cream Draft", "Eriskay Pony", "Caspian Horse", "Hackney Horse",
+//            "Highland Pony", "Shire Horse")
+        var list = ArrayList<Model>()
+
+        list.add(Model("The Canadian Horse", "Saddle horse", R.drawable.horse_eye))
+        list.add(Model("Dales Pony", "Pony", R.drawable.horse_eye))
+        list.add(Model("Suffolk Punch", "Draft horse", R.drawable.horse_eye))
+
+        listView1.adapter = MyCustomAdapter(this, R.layout.custom_item_layout, list)
 
 
-        listView1.onItemClickListener = AdapterView.OnItemClickListener {
-            parent, view, position, id ->
-            Toast.makeText(this,"Selected: " + misc[position], Toast.LENGTH_LONG).show()
-        }
+
 
 
     }
