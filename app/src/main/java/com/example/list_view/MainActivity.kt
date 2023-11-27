@@ -25,6 +25,11 @@ class MainActivity : AppCompatActivity() {
         listView1.adapter = MyCustomAdapter(this, R.layout.custom_item_layout, list)
 
 
+        listView1.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            val clickedItem: Model = list[position]
+            val toastMessage = "Breed: ${clickedItem.breed}, Type: ${clickedItem.type}"
+            Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show()
+        }
 
 
 

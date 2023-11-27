@@ -20,8 +20,8 @@ class MyCustomAdapter(var ctx: Context,
         val extra = view.findViewById<TextView>(R.id.idExtraTxt)
         val img = view.findViewById<ImageView>(R.id.idImage1)
 
-        name.text = Items[position].Name
-        extra.text = Items[position].extraText
+        name.text = Items[position].breed
+        extra.text = Items[position].type
         img.setImageDrawable(ctx.resources.getDrawable(Items[position].img))
 
 
